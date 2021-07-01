@@ -249,3 +249,39 @@ footer {
     margin-top: 45px;
   }
 }
+
+//find-project
+//select style
+.border-tree-data {
+  border: 2px solid;
+}
+#wrapper-search-filter {
+  > div {
+    > div:not(:last-child) {
+      text-align: center;
+      cursor: pointer;
+      > span {
+        > span {
+          font-size: 24px;
+          border: 1px solid;
+          padding: 10px;
+          border-radius: 50%;
+        }
+        > p {
+          margin-top: 5px;
+        }
+      }
+    }
+    > div:last-child {
+      align-self: end;
+      margin-top: 6px;
+      > div {
+        > div {
+          padding: 5px 15px;
+        }
+      }
+    }
+  }
+}
+//end of select style
+//end of find project

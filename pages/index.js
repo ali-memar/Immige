@@ -1,5 +1,5 @@
-import Suggestion from "components/Suggestion/suggestion";
-import Activity from "components/Activity/activity";
+import Suggestion from "components/HomePage/Suggestion/suggestion";
+import Activity from "components/HomePage/Activity/activity";
 const Home = () => {
   return (
     <>

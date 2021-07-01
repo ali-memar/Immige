@@ -1,5 +1,5 @@
 import React from "react";
-import SelectTransfer from "components/select-transfer/SelectTransfer";
+import SelectTransfer from "components/FindProjectPage/Select-Sransfer/SelectTransfer";
 
 const FindProject = () => {
   return (

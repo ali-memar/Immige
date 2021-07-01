@@ -1,5 +1,5 @@
 import { Row, Col, Table } from "antd";
-import Calender from "components/Activity/calender";
+import Calender from "components/HomePage/Activity/calender";
 
 const Activity = () => {
   const columns = [
