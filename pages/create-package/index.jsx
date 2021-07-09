@@ -1,8 +1,10 @@
 import React from "react";
-import { Select, Tooltip } from "antd";
-import SliderCategory from "components/PageCreatePackage/slider";
-import SelectTransfer from "components/PageFindProject/Select-Sransfer/SelectTransfer";
-import { QuestionOutlined } from "@ant-design/icons";
+import { Select } from "antd";
+
+import FormStep2 from "components/PageCreatePackage/Step2/formStep2";
+import FormStep1 from "components/PageCreatePackage/Step1/formStep1";
+import FormStep3 from "components/PageCreatePackage/Step3/formStep3";
+import FormStep4 from "components/PageCreatePackage/Step4/formStep4";
 const CreateProject = () => {
   const { Option } = Select;
 
@@ -40,16 +42,25 @@ const CreateProject = () => {
             <div className="header-title-step">
               <h2>STEP 1 - CATEGORY & SERVICES</h2>
             </div>
-            <h3>Select a category*</h3>
-            <SliderCategory />
+            <FormStep1 />
           </div>
           <div className="step2">
-            <h3>Select include services*</h3>
-            <Tooltip title="Please select all services that are included in your package. You can also add relevant/additional tags.">
-              <QuestionOutlined />
-            </Tooltip>
-
-            <SelectTransfer />
+            <div className="header-title-step">
+              <h2>STEP 2 - Price & Location</h2>
+            </div>
+            <FormStep2 />
+          </div>
+          <div className="step3">
+            <div className="header-title-step">
+              <h2>STEP 3 - What's included?</h2>
+            </div>
+            <FormStep3 />
+          </div>
+          <div className="step4">
+            <div className="header-title-step">
+              <h2>STEP 4 - Showcase your work</h2>
+            </div>
+            <FormStep4 />
           </div>
         </div>
       </div>

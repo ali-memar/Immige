@@ -185,7 +185,7 @@ const SelectTransfer = () => {
         </Row>
       </div>
       {/* styles */}
-      <style jsx global>{`
+      <style jsx>{`
         .ant-select-selection-item {
           color: white;
           background: #e72b56 !important;
