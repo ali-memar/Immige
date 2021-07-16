@@ -67,6 +67,11 @@ h5 {
 .active-bg {
   background-color: $pink;
 }
+#container {
+  position: relative;
+  width: 600px;
+  height: 400px;
+}
 #__next {
   position: relative;
 }
@@ -290,6 +295,18 @@ footer {
 #wrapper-main-create-package {
   .wrapper-select-draft {
     display: flex;
+    justify-content: space-between;
+  }
+  .wrapper-steps {
+    .header-title-step {
+      background: #eee;
+      line-height: 60px;
+      font-size: 20px;
+    }
+  }
+  label {
+    font-weight: bold;
+    font-size: 16px;
   }
 }
 //slider
@@ -329,4 +346,75 @@ footer {
   }
 }
 //end of slider
+//wrapper-price
+.wrapperPrice {
+  display: flex;
+  justify-content: space-between;
+  > div {
+    width: 100%;
+    > .ant-form-item-label {
+      width: 100%;
+      max-width: 100% !important;
+    }
+  }
+  .ant-input-number {
+    width: 100%;
+  }
+  .ant-col.ant-col-24.ant-form-item-control {
+    max-width: 100% !important;
+    padding-right: 15px !important;
+  }
+}
+//end of wrapper-price
+// wrapper offer optional
+#wrapperOfferOprional {
+  :first-child {
+    width: 100%;
+  }
+  :nth-child(2) {
+    width: 50%;
+  }
+}
+// end of wrapper offer optional
+
+//wrapper photos package
+#wrapper-photos-package {
+  display: flex;
+  justify-content: space-between;
+  .ant-upload.ant-upload-select.ant-upload-select-picture-card {
+    width: 40vw;
+  }
+  .ant-upload-list-picture-card-container {
+    width: 40vw;
+    height: 200px;
+  }
+  > div {
+    flex-direction: row;
+  }
+}
+//end of wrapper photos package
+//step2
+.step2 {
+  .add-location {
+    > div:first-child {
+      width: 100%;
+    }
+  }
+}
+//end of step2
+//step3
+.step3 {
+  .ant-space-item:first-child {
+    width: 100%;
+  }
+}
+//end of step3
+
+//form submit
+.form-submit {
+  padding: 33px 0 0 0;
+  border-top: 2px solid #eee;
+  margin-top: 66px;
+}
+//end of form submit
 //end of create package

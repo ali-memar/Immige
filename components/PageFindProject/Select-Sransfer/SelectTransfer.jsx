@@ -185,42 +185,54 @@ const SelectTransfer = () => {
         </Row>
       </div>
       {/* styles */}
-      <style jsx>{`
-        .ant-select-selection-item {
+      <style jsx global>{`
+        #wrapper-search-filter .ant-select-selection-item {
           color: white;
           background: #e72b56 !important;
           border-radius: 15px !important;
           font-weight: 500;
         }
-        .ant-select-multiple .ant-select-selection-item-remove {
+        #wrapper-search-filter .ant-select-multiple .ant-select-selection-item-remove {
           color: white;
+        }
+        #wrapper-search-filter .ant-tree-checkbox-checked .ant-tree-checkbox-inner {
+          background-color: #e72b56 !important;
+          border-color: #e72b56 !important;
+        }
+        #wrapper-search-filter .ant-tree-checkbox-wrapper:hover .ant-tree-checkbox-inner,
+        #wrapper-search-filter .ant-tree-checkbox:hover .ant-tree-checkbox-inner,
+        #wrapper-search-filter .ant-tree-checkbox-input:focus + .ant-tree-checkbox-inner {
+          border-color: #e72b56 !important;
+        }
+        #wrapper-search-filter .ant-tree-checkbox-checked::after {
+          border: none !important;
+        }
+        #wrapper-search-filter .ant-tree-checkbox-indeterminate .ant-tree-checkbox-inner::after {
+          background-color: #e72b56 !important;
+        }
+        #wrapper-search-filter .ant-tree-switcher .ant-tree-switcher-icon svg,
+        #wrapper-search-filter .ant-tree-switcher .ant-select-tree-switcher-icon svg {
+          fill: #ff00c3;
+          font-size: 12px;
+        }
+        #wrapper-search-filter .ant-col{
+          text-align:center
+          font-size: 25px;
+        }
+        #wrapper-search-filter .ant-popover-inner-content{
+          box-shadow: 0px 0px 6px 0px #a7a6a6;
+        }
+        .ant-select:not(.ant-select-disabled):hover .ant-select-selector{
+          border-color:#d9d9d9 !important;
+        }
+        .ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+          border-color:  #e72b56 !important;
+          -webkit-box-shadow: 0 0 0 2px rgb(231 43 86 / 20%) !important;
+          box-shadow: 0 0 0 2px rgb(231 43 86 / 20%) !important;
         }
         .ant-tree-checkbox-checked .ant-tree-checkbox-inner {
           background-color: #e72b56 !important;
           border-color: #e72b56 !important;
-        }
-        .ant-tree-checkbox-wrapper:hover .ant-tree-checkbox-inner,
-        .ant-tree-checkbox:hover .ant-tree-checkbox-inner,
-        .ant-tree-checkbox-input:focus + .ant-tree-checkbox-inner {
-          border-color: #e72b56 !important;
-        }
-        .ant-tree-checkbox-checked::after {
-          border: none !important;
-        }
-        .ant-tree-checkbox-indeterminate .ant-tree-checkbox-inner::after {
-          background-color: #e72b56 !important;
-        }
-        .ant-tree-switcher .ant-tree-switcher-icon svg,
-        .ant-tree-switcher .ant-select-tree-switcher-icon svg {
-          fill: #ff00c3;
-          font-size: 12px;
-        }
-        .ant-col{
-          text-align:center
-          font-size: 25px;
-        }
-        .ant-popover-inner-content{
-          box-shadow: 0px 0px 6px 0px #a7a6a6;
         }
       `}</style>
       {/* end of styles */}

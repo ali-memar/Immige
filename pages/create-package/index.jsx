@@ -1,12 +1,39 @@
 import React from "react";
-import { Select } from "antd";
+import { Form, Select } from "antd";
 
-import FormStep2 from "components/PageCreatePackage/Step2/formStep2";
 import FormStep1 from "components/PageCreatePackage/Step1/formStep1";
+import FormStep2 from "components/PageCreatePackage/Step2/formStep2";
 import FormStep3 from "components/PageCreatePackage/Step3/formStep3";
 import FormStep4 from "components/PageCreatePackage/Step4/formStep4";
+import FormStep5 from "components/PageCreatePackage/Step5/formStep5";
+import FormSubmit from "components/PageCreatePackage/formSubmit";
+
+const layout = {
+  labelCol: {
+    span: 24,
+  },
+  wrapperCol: {
+    span: 24,
+  },
+};
+
+const validateMessages = {
+  required: "${label} is required!",
+  types: {
+    email: "${label} is not a valid email!",
+    number: "${label} is not a valid number!",
+  },
+  number: {
+    range: "${label} must be more than ${min}",
+  },
+};
+
 const CreateProject = () => {
   const { Option } = Select;
+
+  const onFinish = (values) => {
+    console.log(values);
+  };
 
   function onChange(value) {
     console.log(`selected ${value}`);
@@ -18,8 +45,8 @@ const CreateProject = () => {
 
   return (
     <>
-      <div id="wrapper-main-create-package" className="mw-1080">
-        <div className="wrapper-select-draft">
+      <div id="wrapper-main-create-package" className="">
+        <div className="wrapper-select-draft mw-1080">
           <h2>Create a new package or select one of your draft packages:</h2>
           <Select
             showSearch
@@ -37,32 +64,70 @@ const CreateProject = () => {
             <Option value="jack">-</Option>
           </Select>
         </div>
-        <div className="wrapper-steps">
-          <div className="step1">
-            <div className="header-title-step">
-              <h2>STEP 1 - CATEGORY & SERVICES</h2>
+        <Form
+          {...layout}
+          name="nest-messages"
+          onFinish={onFinish}
+          validateMessages={validateMessages}
+          scrollToFirstError
+          layout="vertical"
+        >
+          <div className="wrapper-steps">
+            <div className="step1">
+              <div className="header-title-step">
+                <div className="mw-1080">
+                  <h2>STEP 1 - CATEGORY & SERVICES</h2>
+                </div>
+              </div>
+              <div className="mw-1080">
+                <FormStep1 />
+              </div>
             </div>
-            <FormStep1 />
-          </div>
-          <div className="step2">
-            <div className="header-title-step">
-              <h2>STEP 2 - Price & Location</h2>
+            <div className="step2">
+              <div className="header-title-step">
+                <div className="mw-1080">
+                  <h2>STEP 2 - Price & Location</h2>
+                </div>
+              </div>
+              <div className="mw-1080">
+                <FormStep2 />
+              </div>
             </div>
-            <FormStep2 />
-          </div>
-          <div className="step3">
-            <div className="header-title-step">
-              <h2>STEP 3 - What's included?</h2>
+            <div className="step3">
+              <div className="header-title-step">
+                <div className="mw-1080">
+                  <h2>STEP 3 - What's included?</h2>
+                </div>
+              </div>
+              <div className="mw-1080">
+                <FormStep3 />
+              </div>
             </div>
-            <FormStep3 />
-          </div>
-          <div className="step4">
-            <div className="header-title-step">
-              <h2>STEP 4 - Showcase your work</h2>
+            <div className="step4">
+              <div className="header-title-step">
+                <div className="mw-1080">
+                  <h2>STEP 4 - Showcase your work</h2>
+                </div>
+              </div>
+              <div className="mw-1080">
+                <FormStep4 />
+              </div>
             </div>
-            <FormStep4 />
+            <div className="step5">
+              <div className="header-title-step">
+                <div className="mw-1080">
+                  <h2>STEP 5 - What do you need?</h2>
+                </div>
+              </div>
+              <div className="mw-1080">
+                <FormStep5 />
+              </div>
+            </div>
+            <div className="form-submit">
+              <FormSubmit layout={layout} />
+            </div>
           </div>
-        </div>
+        </Form>
       </div>
     </>
   );

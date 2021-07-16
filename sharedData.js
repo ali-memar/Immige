@@ -1,105 +1,105 @@
 const treeDataCamera = [
   {
     title: "Photography",
-    key: "Camera-Photography",
+    key: "Photography",
   },
   {
     title: "Basic Edit",
-    key: "Camera-Basic Edit",
+    key: "cam-Basic Edit",
     children: [
       {
         title: "Selecting best photos",
-        key: "Camera-Basic Edit-Selecting best photos",
+        key: "Selecting best photos",
       },
       {
         title: "Brightness Correction",
-        key: "Camera-Basic Edit-Brightness Correction",
+        key: "Brightness Correction",
       },
       {
         title: "Colour Correction",
-        key: "Camera-Basic Edit-Colour Correction",
+        key: "Colour Correction",
       },
       {
         title: "Damage repair",
-        key: "Camera-Basic Edit-Damage repair",
+        key: "Damage repair",
       },
       {
         title: "Adding effects",
-        key: "Camera-Basic Edit-Adding effects",
+        key: "Adding effects",
       },
       {
         title: "Resizing",
-        key: "Camera-Basic Edit-Resizing",
+        key: "Resizing",
       },
       {
         title: "Straighten",
-        key: "Camera-Basic Edit-Straighten",
+        key: "Straighten",
       },
       {
         title: "Crop",
-        key: "Camera-Basic Edit-Crop",
+        key: "Crop",
       },
       {
         title: "Digital conversion",
-        key: "Camera-Basic Edit-Digital conversion",
+        key: "Digital conversion",
       },
       {
         title: "Background removal",
-        key: "Camera-Basic Edit-Background removal",
+        key: "Background removal",
       },
     ],
   },
   {
     title: "Advanced/Pro Edit",
-    key: "Camera-Advanced/Pro Edit",
+    key: "cam-Advanced/Pro Edit",
     children: [
       {
         title: "Culling",
-        key: "Camera-Advanced-Culling",
+        key: "Culling",
       },
       {
         title: "Conversion (i.e. raw)",
-        key: "Camera-Advanced-Conversion (i.e. raw)",
+        key: "Conversion (i.e. raw)",
       },
       {
         title: "Tones, levels & curves",
-        key: "Camera-Advanced-Tones, levels & curves",
+        key: "Tones, levels & curves",
       },
       {
         title: "Colour Correction",
-        key: "Camera-Advanced-Colour Correction",
+        key: "Colour Correction",
       },
       {
         title: "Clarity & sharpness",
-        key: "Camera-Advanced-Clarity & sharpness",
+        key: "Clarity & sharpness",
       },
       {
         title: "Noise reduction",
-        key: "Camera-Advanced-Noise reduction",
+        key: "Noise reduction",
       },
       {
         title: "Retouching",
-        key: "Camera-Advanced-Retouching",
+        key: "Retouching",
       },
       {
         title: "Background removal",
-        key: "Camera-Advanced-Background removal",
+        key: "Background removal",
       },
       {
         title: "Lens & perspective correction",
-        key: "Camera-Advanced-Lens & perspective correction",
+        key: "Lens & perspective correction",
       },
       {
         title: "Repair & restoration",
-        key: "Camera-Advanced-Repair & restoration",
+        key: "Repair & restoration",
       },
       {
         title: "Effects and compositing",
-        key: "Camera-Advanced-Effects and compositing",
+        key: "Effects and compositing",
       },
       {
         title: "Cropping & resizing",
-        key: "Camera-Advanced-Cropping & resizing",
+        key: "Cropping & resizing",
       },
     ],
   },
@@ -108,73 +108,73 @@ const treeDataCamera = [
 const treeDataVideo = [
   {
     title: "Videography",
-    key: "Video-Videography",
+    key: "Videography",
   },
   {
     title: "Basic Edit",
-    key: "Video-Basic Edit",
+    key: "video-Basic Edit",
     children: [
       {
         title: "Editing",
-        key: "Video-Basic Edit-Editing",
+        key: "Editing",
       },
       {
         title: "Brightness Correction",
-        key: "Video-Basic Edit-Brightness Correction",
+        key: "Brightness Correction",
       },
       {
         title: "Colour Correction",
-        key: "Video-Basic Edit-Colour Correction",
+        key: "Colour Correction",
       },
       {
         title: "Add effects and animations",
-        key: "Video-Basic Edit-Add effects and animations",
+        key: "Add effects and animations",
       },
       {
         title: "Format Conversion",
-        key: "Video-Basic Edit-Format Conversion",
+        key: "Format Conversion",
       },
       {
         title: "Change/add audio",
-        key: "Video-Basic Edit-Change/add audio",
+        key: "Change/add audio",
       },
       {
         title: "Repair damage",
-        key: "Video-Basic Edit-Repair damage",
+        key: "Repair damage",
       },
     ],
   },
   {
     title: "Advanced/Pro Edit",
-    key: "Video-Advanced/Pro Edit",
+    key: "video-Advanced/Pro Edit",
     children: [
       {
         title: "Editing & re-editing",
-        key: "Video-Advanced-Editing & re-editing",
+        key: "Editing & re-editing",
       },
       {
         title: "Wedding video editing",
-        key: "Video-Advanced-Wedding video editing",
+        key: "Wedding video editing",
       },
       {
         title: "Restoration",
-        key: "Video-Advanced-Restoration",
+        key: "Restoration",
       },
       {
         title: "Tape to digital conversion",
-        key: "Video-Advanced-Tape to digital conversion",
+        key: "Tape to digital conversion",
       },
       {
         title: "360° video editing",
-        key: "Video-Advanced-360° video editing",
+        key: "360° video editing",
       },
       {
         title: "Image stabilizing",
-        key: "Video-Advanced-Image stabilizing",
+        key: "Image stabilizing",
       },
       {
         title: "Colour adjustment/corrections",
-        key: "Video-Advanced-Colour adjustment/corrections",
+        key: "Colour adjustment/corrections",
       },
     ],
   },
@@ -183,35 +183,35 @@ const treeDataVideo = [
 const treeDataRelated = [
   {
     title: "Digital marketing",
-    key: "Related-Digital marketing",
+    key: "Digital marketing",
   },
   {
     title: "Social media management",
-    key: "Related-Social media management",
+    key: "Social media management",
   },
   {
     title: "Pre-press",
-    key: "Related-Pre-press",
+    key: "Pre-press",
   },
   {
     title: "Website design",
-    key: "Related-Website design",
+    key: "Website design",
   },
   {
     title: "Logo design",
-    key: "Related-Logo design",
+    key: "Logo design",
   },
   {
     title: "Graphic design",
-    key: "Related-Graphic design",
+    key: "Graphic design",
   },
   {
     title: "Management",
-    key: "Related-Management",
+    key: "Management",
   },
   {
     title: "Flowers",
-    key: "Related-Flowers",
+    key: "Flowers",
   },
 ];
 const sharedData = {
