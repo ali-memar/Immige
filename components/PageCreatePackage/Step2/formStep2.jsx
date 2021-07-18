@@ -9,32 +9,53 @@ import PackageLeadTime from "./packageLeadTime";
 import PackageCheckLocation from "./packageCheckedLocation";
 import PackageCheckDate from "./packageCheckDate";
 
+const formatNumber = (value) => {
+  value += "";
+  const list = value.split(".");
+  const prefix = list[0].charAt(0) === "-" ? "-" : "";
+  let num = prefix ? list[0].slice(1) : list[0];
+  let result = "";
+  while (num.length > 3) {
+    result = `,${num.slice(-3)}${result}`;
+    num = num.slice(0, num.length - 3);
+  }
+  if (num) {
+    result = num + result;
+  }
+  return `${prefix}${result}${list[1] ? `.${list[1]}` : ""}`;
+};
+
 const FormStep2 = () => {
   const [disableDeposit, setDisableDeposit] = useState("false");
   const [placeDeposit, setPlaceDeposit] = useState("Deposit");
-  const [packagePrice, setPackagePrice] = useState();
   const [placeAmount, setPlaceAmount] = useState();
+  const [valuePrice, setValuePrice] = useState(null);
   const [valueDeposit, setValueDeposit] = useState();
   const [displayLocation, setDisplayLocation] = useState("none");
   const [displayDates, setDisplayDates] = useState("none");
   const [isAddBefore, setIsAddBefore] = useState(true);
+  const [locationFieldsList, setLocationFieldsList] = useState([]);
 
-  const handlePrice = (value) => {
-    setPackagePrice(value);
-    if (value < 100) {
-      setDisableDeposit(true);
-      setPlaceDeposit("100%(Full Upfront Payment)");
-      setPlaceAmount(value);
-    } else {
-      setDisableDeposit(false);
-      setPlaceDeposit("Deposit");
-      if (valueDeposit) {
-        setPlaceAmount(value * (valueDeposit * 0.01));
+  const changeValuePrice = (e) => {
+    const isInteger = /^[0-9]+$/;
+    if (e.target.value === "" || isInteger.test(e.target.value)) {
+      setValuePrice(e.target.value);
+      if (e.target.value < 100) {
+        setDisableDeposit(true);
+        setPlaceDeposit("100%(Full Upfront Payment)");
+        setPlaceAmount(e.target.value);
       } else {
-        setPlaceAmount(0);
+        setDisableDeposit(false);
+        setPlaceDeposit("Deposit");
+        if (valueDeposit) {
+          setPlaceAmount(e.target.value * (valueDeposit * 0.01));
+        } else {
+          setPlaceAmount(0);
+        }
       }
     }
   };
+
   const handleDeposit = (value) => {
     setValueDeposit(value);
     // if (valueDeposit) {
@@ -43,6 +64,7 @@ const FormStep2 = () => {
   };
   //for checked location
   const onChangeCheckLoacation = (checked) => {
+    setLocationFieldsList([]);
     if (checked) {
       setDisplayLocation("block");
     } else {
@@ -74,7 +96,11 @@ const FormStep2 = () => {
 
       <div className="wrapperPrice">
         {/* //price */}
-        <PackagePrice handlePrice={handlePrice} />
+        <PackagePrice
+          valuePrice={valuePrice}
+          changeValuePrice={changeValuePrice}
+          formatNumber={formatNumber}
+        />
 
         {/* //deposit */}
         <PackageDeposit
@@ -97,6 +123,7 @@ const FormStep2 = () => {
         displayLocation={displayLocation}
         handleAddBefore={handleAddBefore}
         isAddBefore={isAddBefore}
+        locationFieldsList={locationFieldsList}
       />
 
       {/* check date */}
