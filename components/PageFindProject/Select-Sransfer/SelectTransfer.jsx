@@ -1,5 +1,6 @@
 import { Select } from "antd";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { Tree, Popover, Row, Col } from "antd";
 import {
   CameraOutlined,
@@ -7,10 +8,15 @@ import {
   MenuOutlined,
 } from "@ant-design/icons";
 import sharedData from "sharedData";
-const SelectTransfer = () => {
+const SelectTransfer = (props) => {
+  const router = useRouter();
   const children = [];
-  const [selected, setSelected] = useState([]); //submited in input
-  const [selectedKeys, setSelectedKeys] = useState([]); //checked in tree
+  const [selected, setSelected] = useState(""); //submited in input
+  const [checkedPhoto, setCheckedPhoto] = useState([]); //checked in tree Photo
+  const [checkedVideo, setCheckedVideo] = useState([]); //checked in tree video
+  const [checkedRelated, setCheckedRelated] = useState([]); //checked in tree related
+  const [typedInput, setTypedInput] = useState([]); //checked in tree
+  const [category, setCategory] = useState([]); //selected category in create-package page
 
   //for delete arrow and second box of transfer
   useEffect(() => {
@@ -27,63 +33,70 @@ const SelectTransfer = () => {
   }, []);
   //end of delete
 
+  {
+    if (router.pathname == "/create-package")
+      useEffect(() => {
+        setTypedInput(typedInput.filter((item) => item != category));
+        setCategory(props.category);
+      }, [props.category]);
+  }
+
+  useEffect(() => {
+    const keys = typedInput.concat(
+      checkedPhoto,
+      checkedVideo,
+      checkedRelated,
+      category
+    );
+    const uniqueKeys = keys.filter((v, i, a) => a.indexOf(v) === i);
+    setSelected(uniqueKeys);
+  }, [checkedPhoto, checkedVideo, checkedRelated, typedInput, category]);
+
   const handleChange = (value, e) => {
-    // if()
-    setSelected(value);
-    setSelectedKeys(value);
-    // console.log("value of handeChange", value);
-    // console.log("selectedKeys", selectedKeys);
-    // console.log("selected", selected);
-    // console.log("e", e);
+    setTypedInput(value);
+  };
+  const onCheckedPhoto = (checkedKeys, e) => {
+    setCheckedPhoto(checkedKeys);
+  };
+  const onCheckedVideo = (checkedKeys, e) => {
+    setCheckedVideo(checkedKeys);
+  };
+  const onCheckRelated = (checkedKeys, e) => {
+    setCheckedRelated(checkedKeys);
   };
 
-  const onCheck = (keys, e) => {
-    // console.log(e);
-    let key = e.node.key;
-    if (selected.indexOf(key) == -1 && e.checked) {
-      if (e.node.children) {
-        let childNode = e.node.children;
-        childNode.map((child) => {
-          if (selected.indexOf(child.key) == -1) {
-            selected.push(child.key);
-          }
-        });
-      } else {
-        selected.push(key);
+  const removeItem = (item) => {
+    if (checkedPhoto.indexOf(item) != -1) {
+      setCheckedPhoto(checkedPhoto.filter((i) => i != item));
+    } else if (checkedVideo.indexOf(item) != -1) {
+      setCheckedVideo(checkedVideo.filter((i) => i != item));
+    } else if (checkedRelated.indexOf(item) != -1) {
+      setCheckedRelated(checkedRelated.filter((i) => i != item));
+    } else if (props.category) {
+      if (props.category.indexOf(item) != -1) {
+        props.setCategory([]);
+        props.setActiveSlide(-1);
       }
-    } else if (selected.indexOf(key) != -1 && !e.checked) {
-      if (e.node.children) {
-        let childNode = e.node.children;
-        childNode.map((child) => {
-          selected.splice(selected.indexOf(child.key), 1);
-        });
-      }
-      selected.splice(selected.indexOf(key), 1);
-    } else if (!e.checked && e.node.children) {
-      let childNode = e.node.children;
-      childNode.map((child) => {
-        selected.splice(selected.indexOf(child.key), 1);
-      });
     }
-    // console.log(e);
-    setSelectedKeys(keys);
   };
 
   const clearAllItem = () => {
-    // selectedKeys.splice(0, selectedKeys.length);
-    // selected.splice(0, selectedKeys.length);
-    setSelected([]);
-    setSelectedKeys([]);
-    // console.log(targetKeys);
+    setCheckedPhoto([]);
+    setCheckedVideo([]);
+    setCheckedRelated([]);
+    if (props.category) {
+      props.setCategory([]);
+      props.setActiveSlide(-1);
+    }
   };
 
   const contentHoverCameraIcon = (
     <div className="wrapper-tree-data">
       <Tree
         checkable
-        onCheck={onCheck}
-        selectedKeys={selectedKeys}
-        checkedKeys={selectedKeys}
+        onCheck={onCheckedPhoto}
+        // selectedKeys={selectedKeys}
+        checkedKeys={checkedPhoto}
         treeData={sharedData.treeDataCamera}
       />
     </div>
@@ -92,9 +105,9 @@ const SelectTransfer = () => {
     <div className="wrapper-tree-data">
       <Tree
         checkable
-        onCheck={onCheck}
-        selectedKeys={selectedKeys}
-        checkedKeys={selectedKeys}
+        onCheck={onCheckedVideo}
+        // selectedKeys={selectedKeys}
+        checkedKeys={checkedVideo}
         treeData={sharedData.treeDataVideo}
       />
     </div>
@@ -103,13 +116,14 @@ const SelectTransfer = () => {
     <div className="wrapper-tree-data">
       <Tree
         checkable
-        onCheck={onCheck}
-        selectedKeys={selectedKeys}
-        checkedKeys={selectedKeys}
+        onCheck={onCheckRelated}
+        // selectedKeys={selectedKeys}
+        checkedKeys={checkedRelated}
         treeData={sharedData.treeDataRelated}
       />
     </div>
   );
+
   return (
     <>
       <div id="wrapper-search-filter">
@@ -121,7 +135,11 @@ const SelectTransfer = () => {
           gutter={10}
         >
           <Col
-            className="wrapper-avatar"
+            className={
+              checkedPhoto.length != 0
+                ? "active wrapper-avatar"
+                : "wrapper-avatar"
+            }
             span={2}
             style={{ paddingRight: "0" }}
           >
@@ -135,7 +153,11 @@ const SelectTransfer = () => {
             </Popover>
           </Col>
           <Col
-            className="wrapper-avatar"
+            className={
+              checkedVideo.length != 0
+                ? "active wrapper-avatar"
+                : "wrapper-avatar"
+            }
             span={2}
             style={{ paddingRight: "0" }}
           >
@@ -149,9 +171,14 @@ const SelectTransfer = () => {
             </Popover>
           </Col>
           <Col
-            className="wrapper-avatar"
+            className={
+              checkedRelated.length != 0
+                ? "active wrapper-avatar"
+                : "wrapper-avatar"
+            }
             span={2}
             style={{ paddingRight: "0" }}
+            // style={{checkedRelated ? color:'red' :""}}
           >
             <Popover
               placement="bottomLeft"
@@ -176,6 +203,7 @@ const SelectTransfer = () => {
               value={selected}
               allowClear
               dropdownClassName={"hidden"}
+              onDeselect={removeItem}
               onClear={clearAllItem}
               // onDeselect={removeItem}
             >
