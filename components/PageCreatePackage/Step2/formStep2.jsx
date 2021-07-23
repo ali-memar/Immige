@@ -26,7 +26,7 @@ const formatNumber = (value) => {
 };
 
 const FormStep2 = () => {
-  const [disableDeposit, setDisableDeposit] = useState("false");
+  const [disableDeposit, setDisableDeposit] = useState(true);
   const [placeDeposit, setPlaceDeposit] = useState("Deposit");
   const [placeAmount, setPlaceAmount] = useState();
   const [valuePrice, setValuePrice] = useState(null);

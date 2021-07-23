@@ -1,7 +1,9 @@
 import { Form, Input, Button, Space, Select } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 const { Option } = Select;
-
+const saa=(i)=>{
+  console.log(i);
+}
 const layout = {
   labelCol: {
     span: 4,
@@ -43,7 +45,7 @@ const PackageAddLocation = (props) => {
   return (
     <>
       <Form.Item style={{ display: props.displayLocation }}>
-        <Form.Item
+        {/* <Form.Item
           // {...restField}
           // name={["package", ""]}
           // fieldKey={[fieldKey, "first"]}
@@ -55,53 +57,65 @@ const PackageAddLocation = (props) => {
             addonAfter={selectAfter}
             placeholder="Enter Your Location"
           />
-        </Form.Item>
+        </Form.Item> */}
         <Form.List name="Location">
-          {(fields, { add, remove }) => (
-            <div>
-              {fields.map(({ key, name, fieldKey, ...restField }) => (
-                <Space
-                  className="add-location"
-                  key={key}
-                  style={{ display: "flex", width: "100%", marginBottom: 8 }}
-                  align="baseline"
-                >
-                  <Form.Item
-                    {...restField}
-                    name={[name, "location"]}
-                    fieldKey={[fieldKey, "location"]}
-                    rules={[{ required: true, message: "Missing Location" }]}
-                    wrapperCol={{ ...layout.wrapperCol, offset: 0 }}
-                    style={{ width: "100%" }}
+          {(fields, { add, remove }) => {
+            return (
+              <div>
+                {fields.map(({ key, name, fieldKey,...restField }) => (
+                  <Space
+                    className="add-location"
+                    key={key}
+                    style={{ display: "flex", width: "100%", marginBottom: 8 }}
+                    align="baseline"
                   >
-                    <Input
-                      key={key}
-                      addonBefore={selectBefore}
-                      addonAfter={props.isAddBefore ? selectAfter : ""}
-                      placeholder="Enter Your Location"
-                    />
-                  </Form.Item>
+                    <Form.Item
+                      {...restField}
+                      name={[name, "location"]}
+                      fieldKey={[fieldKey, "location"]}
+                      rules={[{ required: true, message: "Missing Location" }]}
+                      wrapperCol={{ ...layout.wrapperCol, offset: 0 }}
+                      style={{ width: "100%" }}
+                    >
+                      <Input
+                        key={key}
+                        addonBefore={selectBefore}
+                        addonAfter={
+                          // props.isAddBefore 
+                          
+                            // saa(fieldKey[1])
+                            props.isAddBefore 
+                            ? 
+                            selectAfter 
+                            : 
+                            null
+                          
+                        }
+                        placeholder="Enter Your Location"
+                      />
+                    </Form.Item>
 
-                  <MinusCircleOutlined
-                    onClick={() => {
-                      remove(name);
-                      // console.log(fieldKey);
-                    }}
-                  />
-                </Space>
-              ))}
-              <Form.Item>
-                <Button
-                  type="dashed"
-                  onClick={() => add()}
-                  block
-                  icon={<PlusOutlined />}
-                >
-                  Add a new location
-                </Button>
-              </Form.Item>
-            </div>
-          )}
+                    <MinusCircleOutlined
+                      onClick={() => {
+                        remove(name);
+                        console.log(key);
+                      }}
+                    />
+                  </Space>
+                ))}
+                <Form.Item>
+                  <Button
+                    type="dashed"
+                    onClick={() => add()}
+                    block
+                    icon={<PlusOutlined />}
+                  >
+                    Add a new location
+                  </Button>
+                </Form.Item>
+              </div>
+            );
+          }}
         </Form.List>
       </Form.Item>
     </>
