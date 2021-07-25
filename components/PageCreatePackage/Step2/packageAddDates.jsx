@@ -6,14 +6,14 @@ const AddDates = (props) => {
     <>
       <Form.Item style={{ display: props.displayDates }}>
         <>
-          <Form.Item
+          {/* <Form.Item
             // {...restField}
             name={["package", ""]}
             // fieldKey={[fieldKey, "first"]}
             rules={[{ required: true, message: "Missing Location" }]}
           >
             <RangePicker />
-          </Form.Item>
+          </Form.Item> */}
           <Form.List name="Dates">
             {(fields, { add, remove }) => (
               <div>
