@@ -17,7 +17,7 @@ const treeDataCamera = [
       },
       {
         title: "Colour Correction",
-        key: "Colour Correction",
+        key: "Basic Edit-Colour Correction",
       },
       {
         title: "Damage repair",
@@ -45,7 +45,7 @@ const treeDataCamera = [
       },
       {
         title: "Background removal",
-        key: "Background removal",
+        key: "Basic Edit-Background removal",
       },
     ],
   },
