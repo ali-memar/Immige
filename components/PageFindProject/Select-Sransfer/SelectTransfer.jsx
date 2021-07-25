@@ -11,7 +11,7 @@ import sharedData from "sharedData";
 const SelectTransfer = (props) => {
   const router = useRouter();
   const children = [];
-  const [selected, setSelected] = useState(""); //submited in input
+  const [selected, setSelected] = useState([]); //submited in input
   const [checkedPhoto, setCheckedPhoto] = useState([]); //checked in tree Photo
   const [checkedVideo, setCheckedVideo] = useState([]); //checked in tree video
   const [checkedRelated, setCheckedRelated] = useState([]); //checked in tree related
@@ -190,8 +190,9 @@ const SelectTransfer = (props) => {
             </Popover>
           </Col>
           <Col
+            id="select-create"
             className="wrapper-avatar"
-            span={18}
+            span={16}
             style={{ paddingRight: "0" }}
           >
             <Select
@@ -209,6 +210,14 @@ const SelectTransfer = (props) => {
             >
               {children}
             </Select>
+          </Col>
+          <Col
+            className="wrapper-avatar btn-clear"
+            span={2}
+            style={{ paddingRight: "0" }}
+            onClick={clearAllItem}
+          >
+            <a>clear</a>
           </Col>
         </Row>
       </div>
