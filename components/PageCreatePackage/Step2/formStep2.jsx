@@ -8,7 +8,6 @@ import PackageAmount from "./packageAmount";
 import PackageLeadTime from "./packageLeadTime";
 import PackageCheckLocation from "./packageCheckedLocation";
 import PackageCheckDate from "./packageCheckDate";
-
 const formatNumber = (value) => {
   value += "";
   const list = value.split(".");
@@ -33,11 +32,11 @@ const FormStep2 = () => {
   const [valueDeposit, setValueDeposit] = useState();
   const [displayLocation, setDisplayLocation] = useState("none");
   const [displayDates, setDisplayDates] = useState("none");
-  const [isAddBefore, setIsAddBefore] = useState(true);
   const [locationFieldsList, setLocationFieldsList] = useState([]);
 
   const changeValuePrice = (e) => {
     const isInteger = /^[0-9]+$/;
+    console.log(e.target.value);
     if (e.target.value === "" || isInteger.test(e.target.value)) {
       setValuePrice(e.target.value);
       if (e.target.value < 100) {
@@ -79,16 +78,6 @@ const FormStep2 = () => {
       setDisplayDates("none");
     }
   };
-  const handleAddBefore = (value) => {
-    if (value != "City") {
-      setIsAddBefore(true);
-      console.log("is");
-    } else {
-      setIsAddBefore(false);
-    }
-    console.log(value);
-    console.log(isAddBefore);
-  };
   return (
     <>
       {/* //title */}
@@ -121,8 +110,6 @@ const FormStep2 = () => {
       {/* add location */}
       <PackageAddLocation
         displayLocation={displayLocation}
-        handleAddBefore={handleAddBefore}
-        isAddBefore={isAddBefore}
         locationFieldsList={locationFieldsList}
       />
 

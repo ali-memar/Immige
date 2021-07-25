@@ -21,7 +21,8 @@ const PackagePrice = (props) => {
           // max: 99,
         },
       ]}
-    >
+    >     
+
       <Tooltip
         trigger={["focus"]}
         title={title}
@@ -32,6 +33,7 @@ const PackagePrice = (props) => {
         <Input
           placeholder="Enter your package price (Example: 10.00)"
           min={0}
+          allowClear
           onChange={props.changeValuePrice}
           value={props.valuePrice}
         />

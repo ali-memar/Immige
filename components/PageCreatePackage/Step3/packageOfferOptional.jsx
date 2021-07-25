@@ -1,5 +1,7 @@
 import { Form, Input, Button, Space } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import MyInputNumber from "components/inputNumber/inputNumber";
+
 const PackageOfferOptional = () => {
   return (
     <Form.Item
@@ -33,7 +35,7 @@ const PackageOfferOptional = () => {
                   fieldKey={[fieldKey, "optionalAddAmount"]}
                   rules={[{ required: true, message: "This field not empty" }]}
                 >
-                  <Input placeholder="Enter add-on amount" />
+                  <MyInputNumber placeholder="Enter add-on amount" />
                 </Form.Item>
                 <MinusCircleOutlined onClick={() => remove(name)} />
               </Space>
