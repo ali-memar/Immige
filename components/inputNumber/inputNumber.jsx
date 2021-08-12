@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Tooltip } from "antd";
+import { Form, Input, Tooltip } from "antd";
 const formatNumber = (value) => {
   value += "";
   const list = value.split(".");
@@ -33,21 +33,23 @@ const MyInputNumber = (props) => {
     "Input a number"
   );
   return (
-    <Tooltip
-      trigger={["focus"]}
-      title={title}
-      stringMode={true}
-      placement="topLeft"
-      overlayClassName="numeric-input"
-    >
-      <Input
-        placeholder={props.placeholder}
-        min={0}
-        allowClear
-        onChange={changeValue}
-        value={value}
-      />
-    </Tooltip>
+    <Form.Item hasFeedback validateStatus={value ? "success" : "error"}>
+      <Tooltip
+        trigger={["focus"]}
+        title={title}
+        stringMode={true}
+        placement="topLeft"
+        overlayClassName="numeric-input"
+      >
+        <Input
+          placeholder={props.placeholder}
+          min={0}
+          allowClear
+          onChange={changeValue}
+          value={value}
+        />
+      </Tooltip>
+    </Form.Item>
   );
 };
 
