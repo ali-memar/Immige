@@ -28,6 +28,8 @@ const PackageCoverImage = () => {
     <Form.Item
       name="package cover photo"
       label="Add a cover photo for this package"
+      hasFeedback
+      validateStatus={fileList.length != 0 ? "success" : "error"}
       rules={[{ required: true, message: "This field not empty" }]}
     >
       <ImgCrop

@@ -12,11 +12,14 @@ const PackagePrice = (props) => {
     <Form.Item
       name={["package", "price"]}
       label="Package price"
-      validateFirst
+      // validateFirst
+      hasFeedback
+      validateStatus={props.valuePrice ? "success" : "error"}
       rules={[
         {
           required: true,
           type: "number",
+          message: "Enter number"
           // min: 100,
           // max: 99,
         },

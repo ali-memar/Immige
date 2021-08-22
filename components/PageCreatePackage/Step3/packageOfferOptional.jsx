@@ -23,6 +23,7 @@ const PackageOfferOptional = () => {
                   {...restField}
                   name={[name, "optional add"]}
                   fieldKey={[fieldKey, "optionalAdd"]}
+                  hasFeedback
                   rules={[{ required: true, message: "This field not empty" }]}
                   style={{ width: "100%" }}
                 >
@@ -33,7 +34,8 @@ const PackageOfferOptional = () => {
                   {...restField}
                   name={[name, "optional add amount"]}
                   fieldKey={[fieldKey, "optionalAddAmount"]}
-                  rules={[{ required: true, message: "This field not empty" }]}
+                  hasFeedback
+                  rules={[{ required: false, message: "This field not empty" }]}
                 >
                   <MyInputNumber placeholder="Enter add-on amount" />
                 </Form.Item>

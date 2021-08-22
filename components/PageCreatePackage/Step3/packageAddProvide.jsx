@@ -18,6 +18,7 @@ const PackageAddProvide = () => {
                 {...restField}
                 name={[name, "provide package"]}
                 fieldKey={[fieldKey, "providePackage"]}
+                hasFeedback
                 rules={[{ required: true, message: "This field not empty" }]}
               >
                 <Input placeholder="Enter what your package include" />

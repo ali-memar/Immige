@@ -28,7 +28,7 @@ const PackageAddLocation = (props) => {
                       {...restField}
                       name={[name, "location"]}
                       fieldKey={[fieldKey, "location"]}
-                      rules={[{ required: true, message: "Missing Location" }]}
+                      rules={[{ required: false, message: "Missing Location" }]}
                       wrapperCol={{ ...layout.wrapperCol, offset: 0 }}
                       style={{ width: "100%" }}
                     >

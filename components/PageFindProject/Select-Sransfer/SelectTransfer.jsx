@@ -50,18 +50,21 @@ const SelectTransfer = (props) => {
     );
     const uniqueKeys = keys.filter((v, i, a) => a.indexOf(v) === i);
     setSelected(uniqueKeys);
+    if (selected.length > 0 && category.length > 0)
+      props.setvalidStep1("green");
+      else props.setvalidStep1("red");
   }, [checkedPhoto, checkedVideo, checkedRelated, typedInput, category]);
 
-  const handleChange = (value, e) => {
+  const handleChange = (value) => {
     setTypedInput(value);
   };
-  const onCheckedPhoto = (checkedKeys, e) => {
+  const onCheckedPhoto = (checkedKeys) => {
     setCheckedPhoto(checkedKeys);
   };
-  const onCheckedVideo = (checkedKeys, e) => {
+  const onCheckedVideo = (checkedKeys) => {
     setCheckedVideo(checkedKeys);
   };
-  const onCheckRelated = (checkedKeys, e) => {
+  const onCheckRelated = (checkedKeys) => {
     setCheckedRelated(checkedKeys);
   };
 

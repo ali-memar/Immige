@@ -4,6 +4,7 @@ const PackageProvide = () => {
     <Form.Item
       // {...restField}
       name="Provide package"
+      hasFeedback
       // fieldKey={[fieldKey, "providePackage"]}
       rules={[{ required: true, message: "This field not empty" }]}
       label="What are you providing in this package?"

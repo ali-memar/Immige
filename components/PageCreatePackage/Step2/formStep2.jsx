@@ -36,7 +36,6 @@ const FormStep2 = () => {
 
   const changeValuePrice = (e) => {
     const isInteger = /^[0-9]+$/;
-    console.log(e.target.value);
     if (e.target.value === "" || isInteger.test(e.target.value)) {
       setValuePrice(e.target.value);
       if (e.target.value < 100) {
@@ -58,7 +57,7 @@ const FormStep2 = () => {
   const handleDeposit = (value) => {
     setValueDeposit(value);
     // if (valueDeposit) {
-    setPlaceAmount(packagePrice * value * 0.01);
+    setPlaceAmount(valuePrice * value * 0.01);
     // }
   };
   //for checked location

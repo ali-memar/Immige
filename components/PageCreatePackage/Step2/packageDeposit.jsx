@@ -5,6 +5,7 @@ const PackageDeposit = (props) => {
     <Form.Item
       name={["package", "deposit required"]}
       label="Deposit required?"
+      hasFeedback
       rules={[
         {
           required: true,

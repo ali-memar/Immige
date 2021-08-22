@@ -1,13 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Select } from "antd";
-
+import { CheckCircleOutlined } from "@ant-design/icons";
 import FormStep1 from "components/PageCreatePackage/Step1/formStep1";
 import FormStep2 from "components/PageCreatePackage/Step2/formStep2";
 import FormStep3 from "components/PageCreatePackage/Step3/formStep3";
 import FormStep4 from "components/PageCreatePackage/Step4/formStep4";
 import FormStep5 from "components/PageCreatePackage/Step5/formStep5";
 import FormSubmit from "components/PageCreatePackage/formSubmit";
-
 const layout = {
   labelCol: {
     span: 24,
@@ -29,6 +28,8 @@ const validateMessages = {
 };
 
 const CreateProject = () => {
+  const [validStep1, setvalidStep1] = useState("red");
+
   const { Option } = Select;
 
   const onFinish = (values) => {
@@ -77,10 +78,11 @@ const CreateProject = () => {
               <div className="header-title-step">
                 <div className="mw-1080">
                   <h2>STEP 1 - CATEGORY & SERVICES</h2>
+                  <CheckCircleOutlined style={{ color: validStep1 }} />
                 </div>
               </div>
               <div className="mw-1080">
-                <FormStep1 />
+                <FormStep1 setvalidStep1={setvalidStep1} />
               </div>
             </div>
             <div className="step2">

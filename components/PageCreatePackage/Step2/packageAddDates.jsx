@@ -27,6 +27,7 @@ const AddDates = (props) => {
                       {...restField}
                       name={[name, "Date"]}
                       fieldKey={[fieldKey, "Date"]}
+                      hasFeedback
                       rules={[{ required: true, message: "Missing Date" }]}
                     >
                       <RangePicker />

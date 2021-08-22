@@ -28,6 +28,8 @@ const PackageCardPhoto = () => {
     <Form.Item
       name="package card photo"
       label="Add a Package Card Photo"
+      hasFeedback
+      validateStatus={fileList.length != 0 ? "success" : "error"}
       rules={[{ required: true, message: "This field not empty" }]}
     >
       <ImgCrop

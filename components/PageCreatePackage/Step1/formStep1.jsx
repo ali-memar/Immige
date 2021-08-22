@@ -4,7 +4,7 @@ import SliderCategory from "components/PageCreatePackage/slider";
 import SelectTransfer from "components/PageFindProject/Select-Sransfer/SelectTransfer";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import style from "./formStep1.module.scss";
-const formStep1 = () => {
+const formStep1 = (props) => {
   const [category, setCategory] = useState([]);
   const [activeSlide, setActiveSlide] = useState(-1);
 
@@ -28,6 +28,7 @@ const formStep1 = () => {
             category={category}
             setCategory={setCategory}
             setActiveSlide={setActiveSlide}
+            setvalidStep1={props.setvalidStep1}
           />
         </div>
       </div>

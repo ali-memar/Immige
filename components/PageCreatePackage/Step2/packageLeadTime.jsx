@@ -5,6 +5,7 @@ const PackageLeadTime = () => {
     <Form.Item
       name={["package", "lead time"]}
       label="Lead time"
+      hasFeedback
       rules={[
         {
           required: true,

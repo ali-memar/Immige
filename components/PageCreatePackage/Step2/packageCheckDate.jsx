@@ -1,7 +1,7 @@
 import { Form, Switch } from "antd";
 const PackageCheckDate = (props) => {
   return (
-    <Form.Item name={("package", "swich date")} label="Dates">
+    <Form.Item name={("package", "swich date")} label="Dates" hasFeedback>
       <>
         <span style={{ marginRight: "10px" }}>
           Would you like to restrict available dates?

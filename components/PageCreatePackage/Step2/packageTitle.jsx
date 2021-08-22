@@ -4,6 +4,7 @@ const PackageTitile = () => {
     <Form.Item
       name={["package", "title"]}
       label="Package title"
+      hasFeedback
       rules={[
         {
           required: true,

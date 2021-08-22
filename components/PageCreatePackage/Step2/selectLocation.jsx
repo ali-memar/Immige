@@ -1,16 +1,33 @@
 import React, { useState } from "react";
-import { Input, Select } from "antd";
+import { Input, Select, Form } from "antd";
 const SelectLocation = () => {
+  const [status, setStatus] = useState({
+    isSelect: true,
+    select: false,
+    input: false,
+  });
   const [isAddBefore, setIsAddBefore] = useState(true);
 
   const { Option } = Select;
 
+  const onChange = (e) => {
+    if (e.target.value != "") {
+      setStatus((prevState) => ({ ...prevState, input: true }));
+    } else {
+      setStatus((prevState) => ({ ...prevState, input: false }));
+    }
+  };
   const handleAddBefore = (value) => {
     if (value != "City") {
       setIsAddBefore(true);
+      setStatus((prevState) => ({ ...prevState, isSelect: true }));
     } else {
       setIsAddBefore(false);
+      setStatus((prevState) => ({ ...prevState, isSelect: false }));
     }
+  };
+  const onChangeSelect = () => {
+    setStatus((prevState) => ({ ...prevState, select: true }));
   };
 
   const selectBefore = (
@@ -28,6 +45,7 @@ const SelectLocation = () => {
     <Select
       defaultValue="Select radius of availablity in miles"
       className="select-after"
+      onChange={onChangeSelect}
     >
       <Option value="2 miles">2 miles</Option>
       <Option value="5 miles">5 miles</Option>
@@ -41,11 +59,25 @@ const SelectLocation = () => {
     </Select>
   );
   return (
-    <Input
-      addonBefore={selectBefore}
-      addonAfter={isAddBefore ? selectAfter : null}
-      placeholder="Enter Your Location"
-    />
+    <Form.Item
+      hasFeedback
+      validateStatus={
+        (!status.isSelect && status.input) ||
+        (status.isSelect && status.select && status.input)
+          ? "success"
+          : "error"
+      }
+      // help="Should be combination of numbers & alphabets"
+      rules={[{ required: true, message: "Missing Location" }]}
+    >
+      <Input
+        addonBefore={selectBefore}
+        addonAfter={isAddBefore ? selectAfter : null}
+        placeholder="Enter Your Location"
+        // value={value}
+        onChange={onChange}
+      />
+    </Form.Item>
   );
 };
 

@@ -8,6 +8,7 @@ import Footer from "components/Footer/footer";
 import Navigation from "components/Navigation/navigation";
 import SwitchSectionMainPage from "components/SwitchSectionMainPage/switchSectionMainPage";
 import "styles/globals.scss";
+// import "styles/defaultAntd.less";
 const Layout = ({ children }) => {
   return (
     <>
